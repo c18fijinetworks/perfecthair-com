@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'Perfectly Hair: Effortless Salon Testimonials & Reviews',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+  
+  <Hero2
+    tagline="Your Clients&#39; Best Words, Captured Instantly."
+    title=`<span class="text-accent dark:text-white">Turn Happy Clients into Powerful Reviews.</span>`
+    subtitle="Effortlessly capture glowing testimonials from your salon customers before they walk out the door. Showcase your excellence with a beautiful website widget and QR code, all with our white glove service and no monthly fees."
+    actions={[
+      { variant: 'primary', text: 'Claim Your Lifetime Deal - $99', href: '/pricing/' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{ src: '/images/testimonial-1.webp', alt: 'Happy client in a modern hair salon' }}
+  />
+  
+  <Features
+    class="-mt-16"
+    id="features"
+    title="Unlock the Power of Your Salon&#39;s Success Stories."
+    subtitle="We make it simple to collect and display authentic feedback that drives new business."
+    columns={2}
+    items={[
+        { title: 'Instant Review Capture', description: 'Gently prompt satisfied clients for reviews right at checkout, before they forget.', icon: 'tabler:armchair' },
+        { title: 'Stunning Website Showcase', description: 'Display authentic customer love with a beautiful, customizable testimonial widget on your site.', icon: 'tabler:cut' },
+        { title: 'Easy QR Code Integration', description: 'Place QR codes around your salon to make leaving reviews even more convenient for clients.', icon: 'tabler:armchair' },
+        { title: 'White Glove Service & No Subscriptions', description: 'Enjoy dedicated support and a one-time investment. No recurring bills, just pure value.', icon: 'tabler:cut' },
+    ]}
+  />
+
+  <Content
+    class="-mt-16"
+    items={[
+        { title: 'Build Trust & Credibility', description: 'Authentic testimonials are the most powerful form of social proof, assuring new clients of your salon&#39;s quality and expertise.' },
+        { title: 'Attract More Clients', description: 'Showcase genuine client experiences to highlight your unique services and encourage bookings.' },
+    ]}
+    image={{ src: '/images/testimonial-2.webp', alt: 'Stylist working on a client' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span class="text-accent dark:text-white">Why Testimonials Matter for Your Salon</span></span>
+      </h3>
+    </Fragment>
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Invest in Your Salon&#39;s Reputation, Once.</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the testimonial capture process work?', description: 'We provide you with a discreet system to ask clients for feedback at the point of service completion, ensuring you capture positive experiences in real-time.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look of the testimonial widget?', description: 'Absolutely. Our widget is designed to blend seamlessly with your salon&#39;s branding, offering customization options for colors, fonts, and layout.', icon: 'tabler:scissors' },
+        { title: 'What if a client leaves a negative review?', description: 'Our system is designed to prioritize capturing positive feedback. We focus on empowering you with happy client stories.', icon: 'tabler:scissors' },
+        { title: 'Is there a monthly fee for Perfectly Hair?', description: 'No. Perfectly Hair offers a one-time investment for our comprehensive testimonial engine and white glove service. No ongoing subscriptions, ever.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+<Steps2
+    class="-mt-16"
+    title="Get Your Client&#39;s Best Words."
+    subtitle="Stop missing out on valuable feedback. Perfectly Hair makes it effortless to capture genuine testimonials, build trust, and attract new clients. Invest once, reap the rewards of glowing reviews forever."
+    callToAction={{ text: 'Contact us', href: '/contact/' }}
+    image={{ src: '/images/testimonial-3.webp', alt: 'Perfectly Hair Alt3' }}
+  />
+</Layout>

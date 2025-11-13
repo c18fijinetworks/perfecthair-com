@@ -1,0 +1,47 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About Perfectly Hair',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About Perfectly Hair"
+    image={{ src: '/images/testimonial-4.webp', alt: 'About Perfectly Hair' }}
+  >
+    <Fragment slot="title">
+      Crafting Beautiful Testimonials<br />
+      <span class="text-accent dark:text-white">For Beautiful Hair Salons.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      At Perfectly Hair, we understand the unique power of a happy client. We built our Intelligent Testimonial Engine to help hair salons and barbershops effortlessly capture the authentic praise that fuels growth and builds an unshakeable reputation. Our mission is to connect your skill with the words that matter most.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Commitment to Your Salon&#39;s Success"
+    subtitle="We&#39;re dedicated to providing solutions that are as elegant and effective as the services you offer."
+    items={[
+      { title: 'Simplicity', description: 'Our platform is designed for ease of use, so you can focus on clients, not technology.' },
+      { title: 'Impact', description: 'We deliver tangible results by transforming satisfied clients into powerful advocates for your business.' },
+      { title: 'Transparency', description: 'With a one-time investment and no hidden fees, you know exactly what you&#39;re getting: outstanding value.' },
+    ]}
+  />
+
+  <Pricing
+    class="pb-0"
+    title={`<span class="text-accent dark:text-white">Invest in Your Salon&#39;s Reputation, Once.</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-6.webp', alt: 'Perfectly Hair feature image' }} />
+
+</Layout>

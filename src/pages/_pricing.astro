@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'Perfectly Hair Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Your Investment in Reputation" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Unlock a lifetime of powerful client testimonials with a single, smart investment.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the testimonial capture process work?', description: 'We provide you with a discreet system to ask clients for feedback at the point of service completion, ensuring you capture positive experiences in real-time.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look of the testimonial widget?', description: 'Absolutely. Our widget is designed to blend seamlessly with your salon&#39;s branding, offering customization options for colors, fonts, and layout.', icon: 'tabler:scissors' },
+        { title: 'What if a client leaves a negative review?', description: 'Our system is designed to prioritize capturing positive feedback. We focus on empowering you with happy client stories.', icon: 'tabler:scissors' },
+        { title: 'Is there a monthly fee for Perfectly Hair?', description: 'No. Perfectly Hair offers a one-time investment for our comprehensive testimonial engine and white glove service. No ongoing subscriptions, ever.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <CallToAction
+    title="Ready to amplify your salon&#39;s voice?"
+    subtitle="Don&#39;t let happy client experiences go unsaid. Invest in Perfectly Hair and let your customers tell the world how amazing you are. Contact us today to learn more."
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>
