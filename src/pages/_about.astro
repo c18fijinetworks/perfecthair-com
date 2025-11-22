@@ -1,0 +1,44 @@
+---
+import heroImage from '~/assets/images/testimonial-4.webp';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About Perfectly Hair',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About Perfectly Hair"
+    image={{ src: heroImage, alt: 'About SaasName' }}
+  >
+    <Fragment slot="title">
+      Perfectly Hair: Your Partner in<br />
+      <span class="text-accent dark:text-white">Reputation Growth.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      We understand the passion and hard work that goes into running a successful hair salon or barbershop. Perfectly Hair was born from a desire to help businesses like yours effortlessly harness the power of happy customer experiences. Our mission is to make it easy for you to collect and showcase authentic testimonials, driving client trust and business growth without any recurring costs.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Commitment to Your Success"
+    subtitle="We&#39;re dedicated to providing solutions that truly benefit your business, built on principles of integrity and innovation."
+    items={[
+      { title: 'Simplicity', description: 'We believe in straightforward solutions that are easy to implement and manage, so you can focus on your clients.' },
+      { title: 'Authenticity', description: 'We champion genuine feedback to build trust and credibility for your salon or barbershop.' },
+      { title: 'Value', description: 'Our one-time investment model ensures you get maximum long-term benefit without ongoing subscription worries.' },
+    ]}
+  />
+  
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Invest in Your Salon&#39;s Growth</span>`}
+    prices={[lifetimeDeal]}
+  />
+</Layout>

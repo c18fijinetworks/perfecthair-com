@@ -1,0 +1,45 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'Perfectly Hair Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Invest Once, Benefit Forever" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Discover the simple, one-time investment that unlocks a continuous stream of powerful testimonials for your salon.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the Intelligent Testimonial Engine work?', description: 'Our system uses smart prompts at the point of service to encourage happy clients to leave feedback. This ensures timely and relevant testimonials.', icon: 'tabler:scissors' },
+        { title: 'Is there a monthly subscription fee?', description: 'Absolutely not. Perfectly Hair operates on a one-time investment model. No recurring subscriptions, just ongoing value.', icon: 'tabler:scissors' },
+        { title: 'How easy is it to set up the website widget?', description: 'Our widget is designed for easy integration. We provide clear instructions and white-glove support to ensure a seamless setup on your website.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look of the testimonial widget?', description: 'Yes, our widget is customizable to match your salon&#39;s branding, ensuring a cohesive and professional look on your website.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <CallToAction
+    title="Ready to Transform Your Salon&#39;s Reputation?"
+    subtitle="Join the growing number of salons and barbershops using Perfectly Hair to capture their best reviews and showcase them proudly. Get started today and watch your client trust soar."
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>

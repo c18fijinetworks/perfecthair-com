@@ -1,0 +1,89 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'Perfectly Hair | Elevate Your Salon&#39;s Reputation',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header {...headerData} isSticky />
+  </Fragment>
+  
+  <Hero2
+    tagline="Turn Happy Clients into Glowing Reviews."
+    title=`<span class="text-accent dark:text-white">Amplify Your Salon&#39;s Success with Authentic Praise.</span>`
+    subtitle="Perfectly Hair is your intelligent testimonial engine, designed to capture genuine customer feedback before they leave, turning satisfied clients into powerful social proof for your salon or barbershop."
+    actions={[
+      { variant: 'primary', text: 'Claim Your Lifetime Deal - $99', href: '/pricing/' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{ src: '/images/testimonial-1.webp', alt: 'Happy client in a modern hair salon' }}
+  />
+  
+  <Features
+    class="-mt-16"
+    id="features"
+    title="Unlock the Power of Happy Clients"
+    subtitle="Our unique system is built to make collecting and showcasing testimonials seamless and impactful."
+    columns={2}
+    items={[
+        { title: 'Intelligent Testimonial Capture', description: 'Our smart system prompts happy clients for reviews right after their service, ensuring you capture authentic feedback at its peak. No more chasing reviews later.', icon: 'tabler:armchair' },
+        { title: 'Stunning Website Showcase', description: 'Display glowing testimonials elegantly with our customizable website widget. Impress potential clients and build trust instantly.', icon: 'tabler:cut' },
+        { title: 'Effortless QR Code Integration', description: 'Generate personalized QR codes that clients can scan to leave reviews, seamlessly integrating feedback collection into your in-salon experience.', icon: 'tabler:armchair' },
+        { title: 'White Glove Service & Zero Subscriptions', description: 'Experience unparalleled support from our team. Enjoy our powerful testimonial engine with a one-time investment – no recurring monthly fees, ever.', icon: 'tabler:cut' },
+    ]}
+  />
+
+  <Content
+    class="-mt-16"
+    items={[
+        { title: 'Boost Your Online Reputation', description: 'More positive reviews mean more clients. We make it simple to gather the authentic feedback that drives bookings and builds your brand.' },
+        { title: 'Focus on What You Do Best', description: 'Let us handle the testimonial collection. Spend less time managing reviews and more time creating amazing hair experiences for your clients.' },
+    ]}
+    image={{ src: '/images/testimonial-2.webp', alt: 'Stylist working on a client' }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        <span class="text-accent dark:text-white">Why Choose Perfectly Hair?</span></span>
+      </h3>
+    </Fragment>
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </Content>
+
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Invest in Your Salon&#39;s Growth</span>`}
+    prices={[lifetimeDeal]}
+  />
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does the Intelligent Testimonial Engine work?', description: 'Our system uses smart prompts at the point of service to encourage happy clients to leave feedback. This ensures timely and relevant testimonials.', icon: 'tabler:scissors' },
+        { title: 'Is there a monthly subscription fee?', description: 'Absolutely not. Perfectly Hair operates on a one-time investment model. No recurring subscriptions, just ongoing value.', icon: 'tabler:scissors' },
+        { title: 'How easy is it to set up the website widget?', description: 'Our widget is designed for easy integration. We provide clear instructions and white-glove support to ensure a seamless setup on your website.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the look of the testimonial widget?', description: 'Yes, our widget is customizable to match your salon&#39;s branding, ensuring a cohesive and professional look on your website.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+<Steps2
+    class="-mt-16"
+    title="Amplify Your Salon&#39;s Voice"
+    subtitle="Stop missing out on valuable client praise. Perfectly Hair empowers you to capture glowing testimonials the moment clients express satisfaction, displaying them beautifully on your website and building undeniable trust."
+    callToAction={{ text: 'Contact us', href: '/contact/' }}
+    image={{ src: '/images/testimonial-3.webp', alt: 'Perfectly Hair Alt3' }}
+  />
+</Layout>
