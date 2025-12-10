@@ -1,0 +1,44 @@
+---
+import heroImage from '~/assets/images/testimonial-4.webp';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+
+const metadata = {
+  title: 'About Perfectly Hair',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About Perfectly Hair"
+    image={{ src: heroImage, alt: 'About SaasName' }}
+  >
+    <Fragment slot="title">
+      About Perfectly Hair<br />
+      <span class="text-accent dark:text-white">Building a Better Reputation for Salons & Barbers</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Perfectly Hair was founded by industry professionals who understand the challenges salons face in managing their online reputation. We created a solution to simplify the process and help businesses thrive.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    class="-mt-12"
+    title="Our Core Values"
+    subtitle="We&#39;re committed to delivering exceptional value and building long-term relationships with our clients."
+    items={[
+      { title: 'Simplicity', description: 'We believe technology should be easy to use, not complicated. Our platform is intuitive and requires minimal training.' },
+      { title: 'Results-Driven', description: 'We&#39;re focused on helping you achieve tangible results – more reviews, higher ratings, and increased revenue.' },
+      { title: 'Customer Success', description: 'Your success is our priority. We provide dedicated support and resources to ensure you get the most out of Perfectly Hair.' },
+    ]}
+  />
+  
+  <Pricing
+    title={`<span class="text-accent dark:text-white">Simple, Scalable Pricing</span>`}
+    prices={[lifetimeDeal]}
+  />
+</Layout>

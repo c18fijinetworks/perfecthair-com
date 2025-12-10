@@ -1,0 +1,48 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { lifetimeDeal } from '~/data/pricingData';
+import Hero from '~/components/widgets/Hero.astro'; // Import the Hero component
+
+const metadata = {
+  title: 'Perfectly Hair Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Choose the Plan That&#39;s Right for Your Salon" />
+
+  <div class="-mt-16">
+    <Pricing
+      id="pricing"
+      title={`Flexible options to fit your budget and needs.`}
+      prices={[lifetimeDeal]}
+    />
+  </div>
+
+  <FAQs
+    class="-mt-16 px-6"
+    title="Frequently Asked Questions"
+    items={[
+        { title: 'How does Perfectly Hair integrate with my existing systems?', description: 'Perfectly Hair works seamlessly with most salon software. We offer easy integration options and dedicated support.', icon: 'tabler:scissors' },
+        { title: 'Is Perfectly Hair GDPR compliant?', description: 'Yes, Perfectly Hair is fully GDPR compliant. We prioritize data privacy and security.', icon: 'tabler:scissors' },
+        { title: 'Can I customize the testimonial request message?', description: 'Absolutely! You have full control over the messaging to ensure it aligns with your brand voice.', icon: 'tabler:scissors' },
+        { title: 'What kind of support do you offer?', description: 'We provide comprehensive support via email, chat, and phone. Our team is dedicated to helping you succeed.', icon: 'tabler:scissors' },
+    ]}
+  >
+    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+  </FAQs>
+
+  <Hero class="-mt-16" image={{ src: '/images/testimonial-5.webp', alt: 'Perfectly Hair testimonial image' }} />
+
+  <CallToAction
+    title="Ready to Get Started?"
+    subtitle="Start capturing more reviews today and watch your salon flourish!"
+    actions={[
+      { variant: 'primary', text: 'Order Same-Day Setup Now', href: '#pricing' },
+    ]}
+  />
+</Layout>
